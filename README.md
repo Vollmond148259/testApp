@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+Необходимо реализовать SPA приложение, реализующее базовый функционал блога, используя заготовленный для этого API.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Основные задачи
 
-## Available Scripts
+1. Подключить и настроить Redux
+2. Добавить роутинг
+3. На главной странице вывести анонс статей с постраничным разбиением
+4. Реализовать поиск по статей по title
+5. Добавить фильтр статей по дате. Необходим фильтр по промежутку между двумя датами
+6. Создать форму добавления новой статьи (POST: /api/articles). После добавления новая статья должна появиться в списке
+7. Добавить кнопку удаления статьи (удаляет только из redux-стора)
+8. При клике на заголовок статьи должна открываться ее страница с текстом. Полный объект статьи можно запросить через (GET: /api/articles/:id)
+9. На странице статьи внизу вывести кнопку показывающую / скрывающую комментарии. Комментарии для статьи можно запросить через (GET: /api/comments?article=articleId)
+10. Создать форму добавления нового комментария к статье от анонимного пользователя. (POST: /api/comments)
+11. При ajax запросах отображать loader-индикатор
 
-In the project directory, you can run:
+При проектировании архитектуры стоит учитывать, что проект потенциально будет развиваться дальше, и его структура должна позволять ориентироваться в постоянно разрастающейся кодовой базе проекта.
 
-### `npm start`
+## Требования к коду и используемым библиотекам
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Приложение необходимо реализовать на React + Redux. Можно использовать любые библиотеки компонентов или же создавать компоненты самостоятельно. Желательно, чтобы приложение выглядело более-менее приятно и удобно. Для работы с редаксом допустимо использовать библиотеки, сокращающий количество бойлерплейт-кода, например @reduxjs/toolkit
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Команды
 
-### `npm test`
+- `yarn` установить зависимости
+- `yarn start` поднимает локальный dev-сервер вместе с api
+- `yarn frontend add package-name` установит package-name в @articles-app/frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Проект использует yarn workspaces для одновременной работы с несколькими приложениями
 
-### `npm run build`
+## API
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+В директории backend лежит приложение, реализующее API для работы со статьями и комментариями. При запуске проекта командой `yarn start` это приложение разворачивается на 3001 порту, а клиент на 3000. Но обратиться к API можно выполняя запросы с клиента через относительный путь, например команда `fetch('/api/articles')` вернет массив статей. Все запросы к API проксируются через webpack на 3001 порт.

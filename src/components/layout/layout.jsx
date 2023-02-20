@@ -1,9 +1,13 @@
-import Header from './header';
-function Layout({ children }) {
+import Header from "./header";
+import { Container } from "@mui/material";
+import { Outlet } from "react-router-dom";
+function Layout() {
   return (
     <>
       <Header />
-      {children}
+      <Container>
+        <Outlet />
+      </Container>
     </>
   );
 }

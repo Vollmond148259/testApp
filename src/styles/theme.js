@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 let theme = createTheme({
   breakpoints: {
     values: {
@@ -12,16 +12,16 @@ let theme = createTheme({
   },
   pallete: {
     primary: {
-      main: '#ffffff',
+      main: "#ffffff",
     },
     background: {
-      paper: '#e7ebef',
-      main: '#ffffff',
-      avatar: '#1876d1',
+      paper: "#e7ebef",
+      main: "#ffffff",
+      avatar: "#1876d1",
     },
   },
   typography: {
-    fontFamily: 'Roboto',
+    fontFamily: "Roboto",
 
     h1: {
       fontSize: 64,
@@ -57,23 +57,23 @@ let theme = createTheme({
   },
   shape: {
     borderRadius: 16,
-    padding: '20px',
+    padding: "20px",
   },
   components: {
     MuiButton: {
       variants: [
         {
-          props: { variant: 'outlined' },
+          props: { variant: "outlined" },
           style: {
-            fontSize: '17px',
+            fontSize: "17px",
             fontWeight: 500,
-            minWidth: '155px',
-            height: '36px',
-            backgroundColor: '#ffffff',
-            '&:hover': {
-              backgroundColor: '#fffff6',
+            minWidth: "100px",
+            height: "36px",
+            backgroundColor: "#ffffff",
+            "&:hover": {
+              backgroundColor: "#fffff6",
             },
-            textTransform: 'none',
+            textTransform: "none",
             zIndex: 0,
           },
         },

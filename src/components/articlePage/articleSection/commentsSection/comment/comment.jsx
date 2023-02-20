@@ -1,13 +1,11 @@
-import ListItem from '@mui/material/ListItem';
-import * as React from 'react';
-import Divider from '@mui/material/Divider';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import theme from '../../../../../styles/theme';
-const getFirstSymbolForAvatar = (userName) => {
-  return userName.slice(0, 1);
-};
+import ListItem from "@mui/material/ListItem";
+import * as React from "react";
+import Divider from "@mui/material/Divider";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import theme from "../../../../../styles/theme";
+import { getFirstSymbolForAvatar } from "../../../../utils/utils";
 export default function Comment({ comment }) {
   return (
     <>
